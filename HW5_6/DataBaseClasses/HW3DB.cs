@@ -19,7 +19,6 @@ namespace HW5_6.DataBaseClasses
         {
             try
             {
-                //_connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=HW_3;Trusted_Connection=True;Integrated Security=True";
                 _connectString = ReadSecret("HW_3");
             }
             catch

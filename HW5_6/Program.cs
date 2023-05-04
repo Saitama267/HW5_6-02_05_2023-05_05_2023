@@ -16,10 +16,10 @@ namespace HW5_6
             {
                 Console.WriteLine("\tMenu");
                 Console.WriteLine("--------------------");
-                Console.WriteLine("1- Select");
-                Console.WriteLine("2- Insert");
-                Console.WriteLine("3- Update");
-                Console.WriteLine("4- Delete");
+                Console.WriteLine("1- Select"); //Task 1
+                Console.WriteLine("2- Insert"); //Task 4
+                Console.WriteLine("3- Update"); //Task 5
+                Console.WriteLine("4- Delete"); //Task 6
                 Console.WriteLine("0- Exit");
                 Int32.TryParse(Console.ReadLine(), out menu);
                 if (menu == 0)
