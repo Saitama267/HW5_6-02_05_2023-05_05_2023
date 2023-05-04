@@ -1,4 +1,5 @@
 ﻿using HW5_6.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,14 +19,20 @@ namespace HW5_6.DataBaseClasses
         {
             try
             {
-                _connectString = ConfigurationManager.ConnectionStrings["HW_3"].ConnectionString;
+                _connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=HW_3;Trusted_Connection=True;Integrated Security=True";
+                //_connectString = ReadSecret("HW_3");
             }
             catch
             {
                 throw;
             }
         }
-
+        public string ReadSecret(string secretName)
+        {
+            var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+            return config[secretName];
+            
+        }
         public void SelectDB(string commandText)
         {
             try
@@ -44,7 +51,7 @@ namespace HW5_6.DataBaseClasses
                                 {
                                     for (int i = 0; i < reader.FieldCount; i++)
                                     {
-                                        Console.Write($"{reader.GetName(i)}: {reader.GetValue(i)}\t");
+                                        Console.Write($"{reader.GetName(i)}: {reader.GetValue(i)} ");
                                     }
                                     Console.WriteLine();
                                 }
@@ -61,17 +68,8 @@ namespace HW5_6.DataBaseClasses
             }
         }
 
-        public void StudentInsert(Order order)
-        {
-            /* correct
-            string name = textBox1.Text; // Jack
-            string commandText = $"SELECT * FROM Students WHERE FirstName ='{name}'";
-            SELECT * FROM Students WHERE FirstName ='Jack'*/
-
-            /* incorrect
-            string name = textBox1.Text; // Jack';DELETE FROM Students--
-            string commandText = $"SELECT * FROM Students WHERE FirstName ='{name}'";
-            SELECT * FROM Students WHERE FirstName ='Jack';DELETE FROM Students--'*/
+        public void Insert(Order order)
+        { 
 
             try
             {
@@ -92,7 +90,7 @@ namespace HW5_6.DataBaseClasses
                         parameter = new SqlParameter
                         {
                             ParameterName = "@AnalysisId",
-                            Value = order.AnalasisId,
+                            Value = order.AnalysisId,
                             SqlDbType = SqlDbType.Int,
  
                         };
