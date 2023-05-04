@@ -24,13 +24,13 @@ namespace HW5_6
                 else if (menu == 1)
                 {
                     Console.Clear();
-                    Console.WriteLine("Enter text with digits");
+                    
                     
                 }
                 else if (menu == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Enter text with digits");
+                    
                    
                 }
                 else if (menu == 3)
