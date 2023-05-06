@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseClasses\OrderTable.cs" />
     <Compile Include="HW_3Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
